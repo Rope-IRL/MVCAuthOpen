@@ -1,0 +1,86 @@
+@model IEnumerable<Flat>
+
+@{
+
+}
+
+<div>
+    <div class = "filter_params">
+        <div class = "filters_container">
+            <div>
+                <label for = "city_filter">City filter</label>
+                <input id = "city_filter" value = "@ViewBag.city" /> 
+            </div>
+            <div>
+                <label for = "cost_filter">Cost filter</label>
+                <input id = "cost_filter"/>
+            </div>
+        </div>
+        <button id = "apply-filters">Filter</button>
+    </div>
+    @foreach (var flat in Model)
+    {
+        <div class="flats_wrapper">
+            <div class="flat" id="flat_@flat.Fid">
+                <div class="flat-header">
+                    <div class="flat-header-name">
+                        @flat.Header
+                    </div>
+                    <div class="flat-header-city">
+                        City @flat.City
+                    </div>
+                </div>
+                <div class="flat-description">
+                    @flat.Description
+                </div>
+                <div class="flat-address">
+                    Address @flat.Address
+                </div>
+                <div class="flat-number_of_rooms">
+                    Number of rooms @flat.NumberOfRooms
+                </div>
+                <div class="flat-number_of_floors">
+                    Number of floors @flat.NumberOfFloors
+                </div>
+                <div class="flat-avgmark">
+                    Average mark @flat.AvgMark
+                </div>
+                <div class="flat-availabilities">
+                    <div class="flat-availabilities-wifi">
+                        @if (flat.WiFiAvailability)
+                        {
+                            <p>Wi-Fi available</p>
+                        }
+                        else
+                        {
+                            <p>Wi-Fi not available</p>
+                        }
+                    </div>
+                    <div class="flat-availabilities-bathroom">
+                        @if (flat.BathroomAvailability)
+                        {
+                            <p>Bathroom available</p>
+                        }
+                        else
+                        {
+                            <p>Bathroom not available</p>
+                        }
+                    </div>
+                </div>
+                <div class="flat-cost">
+                    Cost @flat.CostPerDay
+                </div>
+                <div class="flat-landlord_name" id="@flat.Ll.Llid">
+                    Landlord Name @flat.Ll.LandLordsAdditionalInfo.Name
+                </div>
+                <div class="flat-landlord_surname">
+                    Landlord Surname @flat.Ll.LandLordsAdditionalInfo.Surname
+                </div>
+            </div>
+        </div>
+    }
+    <div class="navigation-btns">
+        <button class="previous_flats">Go back</button>
+        <button class="next_flats">Go next</button>
+    </div>
+</div>

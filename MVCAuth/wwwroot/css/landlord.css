@@ -1,0 +1,52 @@
+.credentials-container{
+    margin-left:360px;
+    margin-right:360px;
+    display: flex;
+    flex-direction:column;
+    gap:16px;
+    margin-top: 100px;
+
+}
+.credentials-container__header{
+    text-align: center;
+}
+.credentials-container__wrapper{
+    border: 2px solid #0a53be;
+    border-radius: 4px;
+    font-size: larger;
+    display: flex;
+    gap:4px;
+}
+
+.wrapper__header{
+    border-right: 1px solid #0a53be;
+    font-weight: 450;
+    font-size: x-large;
+    padding-left:4px
+}
+
+.header--login{
+    padding-right:44px;
+
+}
+
+.header--password{
+    padding-right:4px
+}
+
+.credentials-field{
+    border:none;
+    border-radius:8px;
+    outline:none;
+    flex:1;
+}
+
+.login_button{
+    padding:8px;
+    border:none;
+    border-radius:8px;
+    font-size: larger;
+    color:white;
+    background-color: #0a53be;
+}
+

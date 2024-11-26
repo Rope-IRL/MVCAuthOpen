@@ -1,0 +1,24 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@using MVCAuth.Services.Jwt
+
+@inject CheckSign CheckSignService
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @{
+        string role = CheckSignService.IsSignedIn();
+        if (!role.IsNullOrEmpty())
+        {
+            string name = CheckSignService.GetName();
+            <h2>
+              Welcome @name
+            </h2>
+        }
+        else
+        {
+            <h1 class="display-4">Welcome</h1>
+        }
+    }
+</div>

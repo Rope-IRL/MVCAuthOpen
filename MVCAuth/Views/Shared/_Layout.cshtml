@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.IdentityModel.Tokens
+@using MVCAuth.Services.Jwt
+
+@inject CheckSign CheckSignService
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - MVCAuth</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href = "~/css/landlord.css" />
+    <link rel="stylesheet" href="~/css/house.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/contract.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/MVCAuth.styles.css" asp-append-version="true"/>
+</head>
+<body>
+<header>
+    <nav class="nav_bar">
+        <div class="nav_bar-container">
+                <a class="brand-text" asp-area="" asp-controller="Home" asp-action="Index">MVCRent</a>
+            <div class="nav_bar-container-links_container">
+                <ul class="nav_bar-container-links_container-elements">
+                    <li class="nav_bar-container-links_container-elements-nav_item">
+                        <a class="link-text" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav_bar-container-links_container-elements-nav_item">
+                        @{
+                            string role = CheckSignService.IsSignedIn();
+                            if (role.IsNullOrEmpty())
+                            {
+                                <a class="link-text" asp-area="" asp-controller="FLat" asp-action="Index">Flats</a>
+                                
+                            }
+                            else
+                            {
+                                <a class="link-text" asp-area="" asp-controller="FLat" asp-action="LandLordIndex">Flats</a>
+                            }
+                        }
+                    </li>
+                    <li class="nav_bar-container-links_container-elements-nav_item">
+                        @{
+                            if (role.IsNullOrEmpty())
+                            {
+                                <a class="link-text" asp-area="" asp-controller="House" asp-action="Index">Houses</a>
+
+                            }
+                            else
+                            {
+                                <a class="link-text" asp-area="" asp-controller="House" asp-action="LandLordIndex">Houses</a>
+                            }
+                        }
+                    </li>
+                    @{
+                        if (role == "Admin")
+                        {
+                    <li class="nav_bar-container-links_container-elements-nav_item">
+                                <a class="link-text" asp-area="" asp-controller="Admin" asp-action="LandLords">LandLords</a>
+
+                    </li>
+                    <li class="nav_bar-container-links_container-elements-nav_item">
+                                <a class="link-text" asp-area="" asp-controller="FlatsContract" asp-action="Index">Contracts</a>
+
+                    </li>
+                        }
+                    }
+                    @{
+                        if (role != "Admin")
+                        {
+                            <li class="nav_bar-container-links_container-elements-nav_item">
+                                <a class="link-text" asp-area="" asp-controller="Admin" asp-action="Login">Admin</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        <partial name="_LoginPartial"/>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="px-1">
+        &copy; 2024 - MVCRent
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/login.js" asp-append-version="true"></script>
+<script src="~/js/house.js" asp-append-version="true"></script>
+<script src="~/js/admin.js" asp-append-version="true"></script>
+<script src="~/js/contract.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

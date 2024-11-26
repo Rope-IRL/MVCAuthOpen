@@ -1,0 +1,31 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@using MVCAuth.Services.Jwt
+
+@inject CheckSign CheckSignService
+
+@{
+    string role = CheckSignService.IsSignedIn();
+    if (role.IsNullOrEmpty())
+    {
+        <ul class="login_container">
+            <li class="nav_bar-container-links_container-elements-nav_item">
+                <a class="link-text" href="#">Register</a>
+            </li>
+            <li class="nav_bar-container-links_container-elements-nav_item">
+                <a class="link-text" href="/auth/login">Login</a>
+            </li>
+        </ul>
+    }
+    else if(role != "Admin")
+    {
+        <div class="logout-wrapper">
+            <button class="btn--log-out" id = "log_out_btn">Log out</button>
+        </div>
+    }
+    else if (role == "Admin")
+    {
+        <div class="logout-wrapper">
+            <button class="btn--log-out" id = "admin_log_out_btn">Log out</button>
+        </div>
+    }
+}

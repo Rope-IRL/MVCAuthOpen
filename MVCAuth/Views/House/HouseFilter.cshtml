@@ -1,0 +1,85 @@
+@model IEnumerable<House>
+
+@{
+}
+
+<div>
+    <div class = "house_filter_params">
+        <div class = "house_filters_container">
+            <div>
+                <label for = "house_city_filter">City filter</label>
+                <input id = "house_city_filter"  value = "@ViewBag.city"/>
+            </div>
+            <div>
+                <label for = "house_cost_filter">Cost filter</label>
+                <input id = "house_cost_filter"/>
+            </div>
+        </div>
+        <button id = "house_apply-filters">Filter</button>
+    </div>
+    @foreach (var house in Model)
+    {
+        <div class="houses_wrapper">
+            <div class="house" id="house_@house.Pid">
+                <div class="house-header">
+                    <div class="house-header-name">
+                        @house.Header
+                    </div>
+                    <div class="house-header-city">
+                        City @house.City
+                    </div>
+                </div>
+                <div class="house-description">
+                    @house.Description
+                </div>
+                <div class="house-address">
+                    Address @house.Address
+                </div>
+                <div class="house-number_of_rooms">
+                    Number of rooms @house.NumberOfRooms
+                </div>
+                <div class="house-number_of_floors">
+                    Number of floors @house.NumberOfFloors
+                </div>
+                <div class="house-avgmark">
+                    Average mark @house.AvgMark
+                </div>
+                <div class="house-availabilities">
+                    <div class="house-availabilities-wifi">
+                        @if (house.WiFiAvailability)
+                        {
+                            <p>Wi-Fi available</p>
+                        }
+                        else
+                        {
+                            <p>Wi-Fi not available</p>
+                        }
+                    </div>
+                    <div class="house-availabilities-bathroom">
+                        @if (house.BathroomAvailability)
+                        {
+                            <p>Bathroom available</p>
+                        }
+                        else
+                        {
+                            <p>Bathroom not available</p>
+                        }
+                    </div>
+                </div>
+                <div class="house-cost">
+                    Cost @house.CostPerDay
+                </div>
+                <div class="house-landlord_name" id="@house.Ll.Llid">
+                    Landlord Name @house.Ll.LandLordsAdditionalInfo.Name
+                </div>
+                <div class="house-landlord_surname">
+                    Landlord Surname @house.Ll.LandLordsAdditionalInfo.Surname
+                </div>
+            </div>
+        </div>
+    }
+    <div class="navigation-btns">
+        <button class="previous_houses">Go back</button>
+        <button class="next_houses">Go next</button>
+    </div>
+</div>

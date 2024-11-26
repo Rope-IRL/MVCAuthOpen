@@ -1,0 +1,196 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.nav_bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #003b95; 
+}
+
+.nav_bar-container{
+  padding-top:16px;
+  padding-left: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.brand-text {
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+}
+
+/*.nav_bar-container-links_container {
+    display: flex;
+    align-items: center;
+}*/
+
+.nav_bar-container-links_container-elements {
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.nav_bar-container-links_container-elements-nav_item {
+    list-style-type: none;
+}
+
+.link-text{
+    text-decoration: none;
+    color:white;
+    font-size:larger;
+}
+
+.login_container {
+    padding-top: 16px;
+    padding-left: 0;
+    padding-right:16px;
+    display: flex;
+    flex-direction: row;
+    gap:16px;
+}
+.logout_btn {
+    border: none;
+    border-radius: 8px;
+    background-color: #0a72d4;
+    color: white;
+}
+
+.filter_params{
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px
+}
+
+.filters_container{
+    display: flex;
+    flex-direction: row;
+    gap:4px;
+}
+
+.flats_wrapper{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.flat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 4px solid;
+}
+
+.flat-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flat-header-name {
+    width: fit-content;
+    font-size: x-large;
+    font-weight: 600;
+    border-bottom: 2px solid;
+    border-color: #0a72d4;
+}
+
+
+.flat-availabilities {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.contract {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 4px solid;
+    border-color: black;
+}
+
+.contract-flat-header {
+    font-weight: 600;
+    font-size: x-large;
+    width: fit-content;
+    border-bottom: 2px solid;
+    border-color: #0a72d4;
+}
+
+.contract-reservation_dates {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.navigation-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-top: 8px;
+}
+
+.next_flats {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0a72d4;
+    color: white;
+}
+
+.previous_flats {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0a72d4;
+    color: white;
+}
+
+.logout-wrapper{
+    display: flex;
+    align-items: center;
+    
+}
+
+.btn--log-out{
+    margin-right: 20px;
+    padding: 8px;
+    border:none;
+    background-color: #0a58ca;
+    color: white;
+    border-radius: 8px;
+}
+
+.change-landlord-inv{
+    display: none;
+}
+
+.change-landlord{
+    display: block;
+}

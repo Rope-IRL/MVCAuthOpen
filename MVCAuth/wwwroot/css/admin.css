@@ -1,0 +1,30 @@
+.land_lords--container{
+    padding-right: 240px;
+    padding-left: 240px;
+}
+
+.land_lord--wrapper{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.land_lord--names{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.land_lord--wrapper__info{
+    font-size: large;
+    font-weight: 400;
+}
+
+.info--name{
+    font-size: large;
+    font-weight: 500;
+
+}
+
+

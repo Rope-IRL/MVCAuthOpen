@@ -1,0 +1,33 @@
+@model IEnumerable<LandLord>
+
+@{
+
+}
+
+<div class="land_lords--container">
+    @foreach (var landlord in Model)
+    {
+        <div id="@landlord.Llid" class="land_lord--wrapper">
+            <div class="land_lord--names">
+                <div class="land_lord--wrapper__info info--login">
+                    Login: @landlord.Login
+                </div>
+
+                <div class="land_lord--wrapper__info info--password">
+                    Password: @landlord.Password
+                </div>
+                <div class="land_lord--wrapper__info info--email">
+                    Email: @landlord.Email
+                </div>
+                <div class = "crud_block">
+                    <button class = "landlord_update">Update</button>
+                    <button class = "landlord_delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="navigation-btns">
+        <button class="previous_landlords">Go back</button>
+        <button class="next_landlords">Go next</button>
+    </div>
+</div>

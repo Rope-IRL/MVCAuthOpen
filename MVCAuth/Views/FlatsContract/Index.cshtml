@@ -1,0 +1,59 @@
+@model MVCAuth.ModelViews.ContractModelView
+
+<div class="contracts-wrapper">
+    @foreach(var item in Model.flatsContracts)
+    {
+        <div class="contract-container" id = @item.Id>
+            <div class="contract-start-date">Start date: @item.StartDate</div>
+            <div class="contract-end-date">End date: @item.EndDate</div>    
+            <div class="contract-cost">Cost: @item.Cost</div>
+            <div class="contract-lessee-name" id = "@item.Lid">Lessee Name: @item.LidNavigation.LesseesAdditionalInfo.Name</div>
+            <div class="contract-lessee-surname">Lessee Surname: @item.LidNavigation.LesseesAdditionalInfo.Surname</div>
+            <div class="contract-landlord-name">Landlord Name: @item.Ll.LandLordsAdditionalInfo.Name</div>
+            <div class="contract-landlord-surname">Landlord Surname: @item.Ll.LandLordsAdditionalInfo.Surname</div>
+            <select class = "landlords-selector-inv">
+                @foreach(var landlord in Model.LandLords)
+                {
+                    if (landlord.Llid == item.Ll.Llid)
+                    {
+                        <option value="@landlord.Llid" selected="selected">
+                            Name: @landlord.Name
+                            Surname @landlord.Surname
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@landlord.Llid">
+                            Name: @landlord.Name
+                            Surname @landlord.Surname
+                        </option>
+                    }
+                }
+            </select>
+            <div class="contract-flat-header">Flat header: @item.FidNavigation.Header</div>
+            <select class = "flats-selector-inv">
+                @foreach(var flat in Model.Flats)
+                {
+                    if (flat.Fid == item.FidNavigation.Fid)
+                    {
+                        <option value = "@flat.Fid" selected="selected">@flat.Header</option>
+                       
+                    }
+                    else
+                    {
+                        <option value = "@flat.Fid">@flat.Header</option>
+
+                    }
+                }
+            </select>
+            <div>
+                <button id="update_@item.Id" class="contract_update_btn">Update flat</button>
+                <button id="delete_@item.Id" class="contract_delete_btn">Delete flat</button>
+            </div>
+        </div>
+}
+    <div class="navigation-btns">
+        <button class="previous_contracts">Go back</button>
+        <button class="next_contracts">Go next</button>
+    </div>
+</div>

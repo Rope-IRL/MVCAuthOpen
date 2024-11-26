@@ -1,0 +1,78 @@
+.houses_wrapper{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.house {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 4px solid;
+}
+
+.house-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.house-header-name {
+    width: fit-content;
+    font-size: x-large;
+    font-weight: 600;
+    border-bottom: 2px solid;
+    border-color: #0a72d4;
+}
+
+
+.house-availabilities {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.contract {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 4px solid;
+    border-color: black;
+}
+
+.contract-house-header {
+    font-weight: 600;
+    font-size: x-large;
+    width: fit-content;
+    border-bottom: 2px solid;
+    border-color: #0a72d4;
+}
+
+.contract-reservation_dates {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.navigation-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-top: 8px;
+}
+
+.next_houses {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0a72d4;
+    color: white;
+}
+
+.previous_houses {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0a72d4;
+    color: white;
+}
